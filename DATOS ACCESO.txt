@@ -1,0 +1,26 @@
+IP Address: 190.117.70.101
+
+Web Panel Login:
+Domain: evproducciones.com.ar
+
+Username: evproduc
+Password: y2RphF7fBCXM
+Admin Email: martin.clotet.d@institutoadolfoalsina.com
+
+Control WebPanel:
+https://nd04.ehostingperu.net:2083
+
+
+webmail
+
+https://nd04.ehostingperu.net:2096
+info@evproducciones.com.ar
+wPb9PygHkWyo
+
+
+Nombre de usuario: info@evproducciones.com.ar
+Servidor entrante: nd04.ehostingperu.net
+Puerto IMAP: 993
+Puerto POP3: 995
+Servidor de salida: nd04.ehostingperu.net
+Puerto SMTP: 465

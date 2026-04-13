@@ -1,0 +1,854 @@
+/* Estilos para los enlaces de tutores */
+.tutor-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    margin: 2px 4px 2px 0;
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+/* ===== Ajustes específicos para el modal de Recursantes ===== */
+/* Modal más alto con scroll interno (como la 2da imagen) */
+#modalAgregar .modal-box {
+  max-height: 90vh; /* más alto que el default */
+  overflow-y: auto;
+}
+
+/* Dropdown dentro del modal: header de búsqueda fijo arriba cuando hay scroll */
+#modalAgregar #alumnoDropdown > div:first-child {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+/* Mejor contraste del dropdown */
+#modalAgregar #alumnoDropdown {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  border-color: #d7dde6;
+}
+
+/* Fuerza crecimiento del modal al 90% del alto cuando el select está abierto */
+#modalAgregar.picker-open .modal-box {
+  height: 90vh !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+
+/* Aumentar 50% los chips de cursos solo dentro de las tarjetas de materias */
+/* Nota: reiteramos la regla al final del archivo para ganar precedencia sobre definiciones posteriores */
+.materia-card .materias-lista .materia-curso {
+    font-size: 1.125em !important; /* 0.9em * 1.25 */
+    padding: 3px 10px !important;
+    border-radius: 6px !important;
+}
+
+.tutor-link:hover {
+    background: rgba(0, 123, 255, 0.2);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tutor-link:not(:last-child)::after {
+    content: ',';
+    margin-left: 2px;
+    color: #6c757d;
+}
+
+body{
+    font-family:Segoe UI,Tahoma,sans-serif;
+    margin:0;
+    padding-top:80px;  /* 🔹 espacio igual o un poco más alto que el header */
+    background:linear-gradient(to right,lab(10% -52.37 35.81),lab(10% -32.37 35.81));
+    color:#ffffff;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.8) 20%, rgba(255,255,255,0) 100%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:12px; /* separación entre logo y texto */
+}
+
+.header img.logo{
+    height:55px;
+}
+
+.nombre-colegio{
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    letter-spacing:0.5px;
+    white-space:nowrap;
+}
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 992px) {
+    .nombre-colegio {
+        font-size:16px;
+    }
+}
+
+/* Móviles (pantallas chicas) */
+@media (max-width: 768px) {
+    .nombre-colegio {
+        font-size:14px;
+    }
+}
+
+/* Muy móviles (cuando ya no entra) */
+@media (max-width: 600px) {
+    .nombre-colegio {
+        display:none;  /* 🔹 oculta el nombre y queda solo el logo */
+    }
+}
+
+.user-menu{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    position:relative;
+}
+.user-info{
+    text-align:right;
+    margin-right:10px;
+
+}
+.user-info .nombre{
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:1px;
+    cursor:default;
+
+}
+.user-info .perfil-actual{
+    font-size:12px;
+    color:#ccc;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+
+}
+.user-info .perfil-actual i{font-size:12px;}
+
+/* Dropdown perfil */
+.dropdown-perfil{
+    display:none;
+    position:absolute;
+    top:45px;
+    right:60px;
+    background:rgba(0,170,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:8px;
+    min-width:160px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.5);
+    z-index:10;
+}
+.dropdown-perfil div{
+    padding:8px 12px;
+    font-size:12px;
+    color:#fff;
+    cursor:pointer;
+    border-radius:6px;
+    transition:0.2s;
+    text-align:right;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+}
+.dropdown-perfil div:hover{
+    background:rgba(0,170,255,0.3);
+}
+
+.user-menu img.usuario{
+    height:40px;width:40px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid hsl(120, 89%, 39%);
+    cursor:pointer;
+    transition:0.3s;
+}
+.user-menu img.usuario:hover{
+    transform: scale(1.1);
+    border-color:#35db2f;
+}
+
+/* Dropdown usuario */
+.dropdown{
+    display:none;
+    position:absolute;
+    top:45px;
+    right:0;
+    background:rgba(0,170,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:8px;
+    min-width:160px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.5);
+    z-index:10;
+}
+.dropdown a{
+    display:block;
+    padding:8px 12px;
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    transition:0.2s;
+}
+.dropdown a:hover{
+    background:rgba(0,170,255,0.3);
+}
+
+/* Fecha y hora */
+.datetime{
+    position:fixed;
+    bottom:10px;
+    right:15px;
+    font-size:14px;
+    color:#ccc;
+    text-align:right;
+}
+
+h1{text-align:center;margin-top:20px;font-weight:400;}
+.perfiles{text-align:center;margin:10px 0 20px;font-size:18px;color:#ccc;}
+.menu-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;max-width:1000px;margin:90px auto;padding:0px 15px;}
+.menu-card{background:rgba(22,104,43,0.3);padding:25px 15px;border-radius:15px;backdrop-filter:blur(5px);box-shadow:0 6px 15px rgba(0,0,0,0.4);transition:transform 0.2s ease,background 0.3s;cursor:pointer;text-align:center;}
+.menu-card:hover{transform:translateY(-5px);background:hsla(147, 95%, 36%, 0.705);}
+.menu-card i{font-size:35px;margin-bottom:12px;color:hsl(135, 45%, 91%);}
+.menu-card p{margin:0;font-size:16px;}
+a{text-decoration:none;color:inherit;}
+.logout{display:inline-block;margin:40px auto;padding:12px 25px;background:#ff4444;border-radius:8px;color:#fff;text-decoration:none;font-size:16px;transition:0.3s;}
+.logout:hover{background:#cc0000;}
+.content{text-align:center;}
+
+body::before {
+    content: "";
+    position: fixed;   /* fijo aunque se haga scroll */
+    inset: 0;
+    background: url("fotos/logo.png") no-repeat center center;
+    background-size: contain;     /* siempre entero */
+    opacity: 0.12;
+    transform: rotate(-25deg) scale(1.4);  /* lo agranda sin cortar */
+    transform-origin: center;
+    z-index: -1;       /* detrás de todo el contenido */
+    mix-blend-mode: overlay; /* efecto “burn” */
+    pointer-events: none;  /* evita que bloquee clics */
+            margin-left:120px;
+    margin-top:80px;
+}
+
+.extra-box {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid rgba(22,104,43,0.3);
+    border-radius: 8px;
+    background: rgba(22,104,43,0.05);
+}
+
+/* grid interno */
+.extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    gap: 12px 20px; /* separación entre filas y columnas */
+}
+
+.extra-box h4 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: #ffffff;
+    grid-column: 1 / -1; /* el título ocupa todo el ancho */
+}
+
+.extra-box label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.extra-box input,
+.extra-box select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #000;
+}
+
+/* Responsive: en pantallas chicas se apila */
+@media (max-width: 600px) {
+    .extra-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.perfiles-box {
+    margin: 15px 0;
+}
+
+.perfiles-box h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    gap: 10px;
+}
+
+.checkbox-item {
+    background: rgba(22,104,43,0.1);
+    border: 1px solid rgba(22,104,43,0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.checkbox-item:hover {
+    background: rgba(22,104,43,0.25);
+}
+
+.checkbox-item input[type="checkbox"] {
+    accent-color: #16682b;  /* modern browsers */
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.table {width:90%;margin:20px auto;border-collapse:collapse;}
+.table th,.table td{border:1px solid #16682b;padding:8px;text-align:center;}
+.table th{background:rgba(22,104,43,0.3);}
+.form-box{max-width:600px;margin:20px auto;background:rgba(22,104,43,0.1);padding:20px;border-radius:12px;}
+.form-box input,.form-box select{width:100%;padding:8px;margin:6px 0;border-radius:6px;border:none;}
+
+.modal-overlay {
+    z-index: 1000;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-box {
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #16682b;
+    border-radius: 12px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    color: #000000;
+
+    /* límite al 80% de la altura de la ventana */
+    max-height: 80vh;   
+    overflow-y: auto;   
+    position: relative; 
+}
+
+.modal-box h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #000000 !important;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario del modal */
+.modal-box form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-box input,
+.modal-box select,
+.modal-box button {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.95);
+    color: #000;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+/* Override: checkboxes should not expand to full width in modals */
+.modal-box label input[type="checkbox"],
+.modal-box input[type="checkbox"] {
+    width: auto !important;
+    min-width: 0 !important;
+    display: inline-block;
+    flex: 0 0 auto;
+    margin-right: 8px; /* keep spacing before text */
+    border: none; /* avoid extra box styles from generic input */
+}
+
+/* Estilos específicos para las etiquetas del modal */
+.modal-box label {
+    color: #000000;
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 14px;
+}
+
+/* Estilos para los checkboxes */
+.checkbox-group {
+    margin: 10px 0;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    color: #000000;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.modal-box button {
+    background: linear-gradient(135deg, #16682b, #1a7530);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+.modal-box button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Ajustes para el contenedor de la foto de perfil */
+.foto-perfil-container {
+    margin-bottom: 10px !important;
+}
+
+/* Estilos para el input de email deshabilitado */
+.modal-box input[readonly] {
+    background: rgba(255,255,255,0.7);
+    cursor: not-allowed;
+}
+
+.modal-box .cerrar {
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:24px;
+    color:#000 !important;
+    cursor:pointer;
+}
+
+/* Cierre genérico: asegurar negro en cualquier contexto */
+.cerrar { color:#000 !important; }
+
+/* Estilos para la lista de materias */
+.materias-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 1px 10px 0px 30px;
+}
+
+.materia-item {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 0 4px 0 8px;
+    border: 0.5px solid #dee2e6;
+    font-size: 1em;
+    min-height: 26px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.materia-curso {
+    background-color: #6c757d;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0 5px;
+    border-radius: 3px;
+    margin-right: 6px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    order: -1;
+    margin-left: 0;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.materia-nombre {
+    font-size: 1em;
+    color: #212529;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    line-height: 1.2;
+    padding-right: 24px;
+}
+
+/* Contenedor de chips de cursos con separación uniforme */
+.cursos-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* separación horizontal y vertical iguales */
+}
+
+.btn-eliminar-materia {
+    background: #dc3545;
+    border: 2px solid #dc3545;
+    color: #ffffff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btn-eliminar-materia:hover {
+    background-color: #f1f3f5;
+    color: #dc3545;
+}
+
+.btn-eliminar-materia:hover {
+    background-color: #f1f3f5;
+    color: #dc3545;
+}
+
+/* Modal de Materia Duplicada */
+#modalMateriaDuplicada {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalMateriaDuplicada .modal-box {
+    z-index: 2001;
+    background: rgba(255, 193, 7, 0.9);
+    border: 2px solid #ffc107;
+    color: #000;
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#modalMateriaDuplicada .modal-box h3 {
+    color: #000;
+    margin-top: 0;
+}
+
+#modalMateriaDuplicada .materia-actions {
+    margin-top: 15px;
+    margin-bottom: 15px; /* espacio debajo */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center; /* centrar botones */
+}
+
+#modalMateriaDuplicada .btn-aceptar {
+    background: #16682b;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#modalMateriaDuplicada .btn-aceptar:hover {
+    background: #1a7530;
+}
+
+/* Modern Form Controls */
+.form-group {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+select.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a5568;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em 1em;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+select.form-control:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    outline: none;
+}
+
+select.form-control:hover {
+    border-color: #cbd5e0;
+}
+
+/* Focus state for accessibility */
+select.form-control:focus-visible {
+    outline: 2px solid #4299e1;
+    outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .form-group label {
+        color: #e2e8f0;
+    }
+    
+    select.form-control {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e2e8f0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    }
+    
+    select.form-control:focus {
+        border-color: #63b3ed;
+        box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+    }
+}
+
+/* Estilos para el botón de agregar materia */
+.btn-agregar-materia {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+   
+}
+
+.btn-agregar-materia:hover {
+    background: #218838;
+}
+
+/* ======================
+   Tutores (Modal Editar Alumno)
+   Apariencia similar a .materia-item
+   ====================== */
+.tutores-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* separación entre filas */
+}
+
+.tutores-lista .tutor-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* nombre a la izquierda, icono a la derecha */
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 0 6px 0 10px; /* similar a .materia-item */
+    border: 0.5px solid #dee2e6;
+    min-height: 28px;
+    color: #212529;
+}
+
+/* Nombre del tutor (ocupa el centro) */
+.tutores-lista .tutor-item > span {
+    flex-grow: 1;
+    color: #212529;
+    white-space: normal; /* permitir salto de línea como en el ejemplo */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    padding: 4px 10px 4px 0;
+}
+
+/* Botón eliminar tipo píldora roja, similar al estilo de acciones */
+.tutores-lista .tutor-item > button {
+    background: #dc3545 !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;      /* mejor centrado del glifo */
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;         /* igual a alto para centrar vertical */
+    font-size: 14px;           /* un poco más grande para mejor legibilidad */
+    font-weight: 700;          /* equilibra el glifo × */
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    padding: 0;
+}
+
+.tutores-lista .tutor-item > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.tutores-lista .tutor-item > button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ======================
+   Fila de agregar tutor (select + botón)
+   ====================== */
+.add-tutor-row {
+    display: flex;
+    gap: 8px;
+    align-items: center; /* centra verticalmente ambos controles */
+    margin: 0 0 12px 0;
+}
+
+.add-tutor-select {
+    flex: 1;
+    height: 38px;            /* altura normalizada */
+    padding: 6px 38px 6px 12px; /* deja espacio para la flecha custom */
+    line-height: normal;      /* evita desalineación en algunos navegadores */
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: #212529;
+    box-sizing: border-box;
+    -webkit-appearance: none; /* ocultar flecha nativa */
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px 14px;
+    transform: translateY(4px); /* ajuste fino */
+}
+
+.btn-add-tutor {
+    background: #198754;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0 16px;           /* controlado por altura fija */
+    min-width: 110px;
+    height: 38px;             /* igual al select */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-add-tutor:hover {
+    background: #157347;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.btn-add-tutor:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Notas: input ocupa exactamente el ancho de la celda y sin flechas */
+input.nota-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    height: 24px;
+    font-size: 12px;
+    padding: 0 2px;
+    text-align: center;
+    border: 1px solid #cfd3d7;
+    border-radius: 4px;
+    background: #fff;
+  }
+  /* Quitar flechas en Chrome, Safari, Edge (WebKit) */
+  input[type=number].nota-input::-webkit-outer-spin-button,  
+  input[type=number].nota-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+/* Quitar “apariencia nativa” para mantener estilo consistente */
+input.nota-input {
+    -moz-appearance: textfield;  /* compatibilidad Firefox antiguo */
+    appearance: textfield;       /* estándar */
+  }
+

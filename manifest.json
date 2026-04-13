@@ -1,0 +1,30 @@
+{
+    "id": "/",
+    "name": "En Toda Labor",
+    "short_name": "EnTodaLabor",
+    "start_url": "/login.php",
+    "display": "standalone",
+    "display_override": ["window-controls-overlay", "standalone"],
+    "background_color": "#ffffff",
+    "theme_color": "#004080",
+    "icons": [
+    {
+        "src": "/assets/img/logoapp.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+    ],
+    "screenshots": [
+    {
+        "src": "/assets/img/logoapp.png",
+        "sizes": "1280x720",
+        "type": "image/png",
+        "form_factor": "wide"
+    },
+    {
+        "src": "/assets/img/logoapp.png",
+        "sizes": "375x812",
+        "type": "image/png"
+    }
+    ]
+}
